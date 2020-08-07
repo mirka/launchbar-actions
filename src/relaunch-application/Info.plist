@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>🚀</string>
+	<string>font-awesome:undo</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.jaguchi.LaunchBar.action.RelaunchApp</string>
+	<string>com.jaguchi.LaunchBar.action.RelaunchApplication</string>
 	<key>CFBundleName</key>
-	<string>Relaunch App</string>
+	<string>Relaunch Application</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LBArgument</key>
