@@ -1,0 +1,34 @@
+{
+    "languages": [
+        {
+            "name": "French",
+            "icon": "🇫🇷",
+            "voice": "Audrey"
+        },
+        {
+            "name": "German",
+            "icon": "🇩🇪",
+            "voice": "Anna"
+        },
+        {
+            "name": "English (US)",
+            "icon": "🇺🇸",
+            "voice": "Samantha"
+        },
+        {
+            "name": "Japanese",
+            "icon": "🇯🇵",
+            "voice": "Kyoko"
+        },
+        {
+            "name": "Russian",
+            "icon": "🇷🇺",
+            "voice": "Milena"
+        },
+        {
+            "name": "Portuguese (Brazilian)",
+            "icon": "🇧🇷",
+            "voice": "Felipe"
+        }
+    ]
+}

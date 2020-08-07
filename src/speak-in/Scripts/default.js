@@ -1,15 +1,19 @@
-// Customize languages
-const config = [
-	{ name: 'French', icon: '🇫🇷', voice: 'Audrey' },
-	{ name: 'German', icon: '🇩🇪', voice: 'Anna' },
-	{ name: 'English (US)', icon: '🇺🇸', voice: 'Samantha' },
-	{ name: 'Japanese', icon: '🇯🇵', voice: 'Kyoko' },
-	{ name: 'Russian', icon: '🇷🇺', voice: 'Milena' },
-	{ name: 'Portuguese (Brazilian)', icon: '🇧🇷', voice: 'Felipe' },
-];
+const USER_CONFIG_PATH = Action.supportPath + '/languages.json';
+const DEFAULTS_PATH = Action.path + '/Contents/Resources/default-languages.json';
 
 function runWithString(string) {
+	const config = getConfig();
 	return generateLanguages(string, config);
+}
+
+function getConfig() {
+	if (!File.exists(USER_CONFIG_PATH)) {
+		// Copy defaults to new user config file
+		const data = File.readText(DEFAULTS_PATH);
+		File.writeText(data, USER_CONFIG_PATH);
+	}
+
+	return File.readJSON(USER_CONFIG_PATH).languages;
 }
 
 function _say({ text, voice }) {
@@ -22,7 +26,7 @@ function truncate(str, n = 60){
 }
 
 function generateLanguages(string, config) {
-	return config.map(({ name, icon, voice }) => ({
+	const languages = config.map(({ name, icon, voice }) => ({
 		title: name,
 		icon,
 		label: voice,
@@ -34,4 +38,14 @@ function generateLanguages(string, config) {
 		},
 		actionRunsInBackground: true,
 	}));
+
+	return [
+		...languages,
+		{
+			title: 'Settings',
+			icon: 'font-awesome:cog',
+			path: USER_CONFIG_PATH,
+			subtitle: '',
+		}
+	];
 }
