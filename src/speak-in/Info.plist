@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>💬</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.jaguchi.LaunchBar.action.SpeakIn</string>
+	<key>CFBundleName</key>
+	<string>Speak In…</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBArgument</key>
+	<string>Text to speak.</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBArgument</key>
+		<string>Text to speak.</string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBSummary</key>
+		<string>Speak text using the built-in text-to-speech system. Choose from a customizable list of languages/voices.</string>
+	</dict>
+	<key>LBMinimumLaunchBarVersion</key>
+	<integer>6</integer>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.js</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

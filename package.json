@@ -1,0 +1,25 @@
+{
+  "name": "launchbar-actions",
+  "version": "1.0.0",
+  "description": "LaunchBar Actions",
+  "scripts": {
+    "build": "./dev/build.sh",
+    "link": "./dev/link.sh",
+    "release": "npm run build && ./dev/release.sh",
+    "start": "onchange -i 'src/**/*' -- npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirka/launchbar-actions.git"
+  },
+  "author": "Lena Morita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mirka/launchbar-actions/issues"
+  },
+  "homepage": "https://github.com/mirka/launchbar-actions#readme",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "onchange": "^7.0.2"
+  }
+}
