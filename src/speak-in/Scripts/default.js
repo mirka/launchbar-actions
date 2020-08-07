@@ -30,11 +30,48 @@ function updateStats(voice) {
 	}, STATS_PATH);
 }
 
-function _say({ text, voice }) {
-	LaunchBar.hide();
+function _say({ text, voice, meta }) {
 	LaunchBar.executeAppleScript(`say "${text}" using "${voice}"`);
 
 	updateStats(voice);
+
+	return [
+		{
+			...meta,
+			action: '_say',
+			actionArgument: {
+				text,
+				voice,
+				meta,
+			},
+		},
+		{
+			...meta,
+			title: 'Make audio file',
+			icon: getFileHandler('com.apple.m4a-audio') || 'font-awesome:file',
+			action: '_makeAudioFile',
+			actionArgument: { text, voice },
+			actionReturnsItems: true,
+		},
+	];
+}
+
+function getFileHandler(type) {
+	try {
+		const handlers = File.readPlist('~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist');
+		const { LSHandlerRoleAll: appId } = handlers.LSHandlers.find(item => item.LSHandlerContentType === type);
+		return appId;
+	} catch (err) {
+		return null;
+	}
+}
+
+function _makeAudioFile({ text, voice }) {
+	const filePath = LaunchBar.execute(Action.path + '/Contents/Scripts/make-audio-file.sh', text, voice);
+
+	return [{
+		path: filePath,
+	}];
 }
 
 function truncate(str, n = 60){
@@ -45,18 +82,24 @@ function generateLanguages(string, config) {
 	const lastInvoked = getStats();
 	config.sort((a, b) => (lastInvoked[b.voice] || 0) - (lastInvoked[a.voice] || 0));
 
-	const languages = config.map(({ name, icon, voice }) => ({
-		title: name,
-		icon,
-		label: voice,
-		subtitle: truncate(string),
-		action: '_say',
-		actionArgument: {
-			text: string,
-			voice,
-		},
-		actionRunsInBackground: true,
-	}));
+	const languages = config.map(({ name, icon, voice }) => {
+		const meta = {
+			title: name,
+			icon,
+			label: voice,
+			subtitle: truncate(string),
+		};
+		return {
+			...meta,
+			action: '_say',
+			actionArgument: {
+				text: string,
+				voice,
+				meta,
+			},
+			actionReturnsItems: true,
+		};
+	});
 
 	return [
 		...languages,
