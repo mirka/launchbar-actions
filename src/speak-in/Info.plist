@@ -43,5 +43,7 @@
 			<string>default.js</string>
 		</dict>
 	</dict>
+	<key>LBTextInputTitle</key>
+	<string>Text to speak</string>
 </dict>
 </plist>
