@@ -1,5 +1,6 @@
-const USER_CONFIG_PATH = Action.supportPath + '/languages.json';
 const DEFAULTS_PATH = Action.path + '/Contents/Resources/default-languages.json';
+const USER_CONFIG_PATH = Action.supportPath + '/languages.json';
+const STATS_PATH = Action.supportPath + '/last-invoked.json';
 
 function runWithString(string) {
 	const config = getConfig();
@@ -16,9 +17,24 @@ function getConfig() {
 	return File.readJSON(USER_CONFIG_PATH).languages;
 }
 
+function getStats() {
+	return File.exists(STATS_PATH) ? File.readJSON(STATS_PATH) : {};
+}
+
+function updateStats(voice) {
+	const data = getStats() || {};
+
+	File.writeJSON({
+		...data,
+		[voice]: Date.now(),
+	}, STATS_PATH);
+}
+
 function _say({ text, voice }) {
 	LaunchBar.hide();
 	LaunchBar.executeAppleScript(`say "${text}" using "${voice}"`);
+
+	updateStats(voice);
 }
 
 function truncate(str, n = 60){
@@ -26,6 +42,9 @@ function truncate(str, n = 60){
 }
 
 function generateLanguages(string, config) {
+	const lastInvoked = getStats();
+	config.sort((a, b) => (lastInvoked[b.voice] || 0) - (lastInvoked[a.voice] || 0));
+
 	const languages = config.map(({ name, icon, voice }) => ({
 		title: name,
 		icon,
