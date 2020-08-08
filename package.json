@@ -20,6 +20,18 @@
   "homepage": "https://github.com/mirka/launchbar-actions#readme",
   "devDependencies": {
     "eslint": "^7.6.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "markdown-toc": "^1.2.0",
     "onchange": "^7.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "README.md": "markdown-toc -i"
   }
 }
