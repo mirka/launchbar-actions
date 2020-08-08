@@ -4,6 +4,8 @@ Actions for [LaunchBar](https://www.obdev.at/products/launchbar/).
 
 _Requires LaunchBar 6+._
 
+## Table of Contents
+
 <!-- Will be auto-generated in a pre-commit hook -->
 
 <!-- toc -->
@@ -13,6 +15,7 @@ _Requires LaunchBar 6+._
   * [New File Here](#new-file-here)
   * [Relaunch Application](#relaunch-application)
   * [Speak In…](#speak-in)
+- [Download](#download)
 
 <!-- tocstop -->
 
@@ -34,6 +37,12 @@ Given an application, quit and relaunch it. If the app was running hidden, it wi
 
 ### Speak In…
 
-Given some text, have the computer’s text-to-speech system read it out loud, choosing from a configurable list of languages/voices. You can also save it to an audio file, which can then be used in flashcard apps like [Anki](https://apps.ankiweb.net/). Useful for polyglots and language learners.
+<img src="https://raw.githubusercontent.com/mirka/launchbar-actions/master/assets/screen-speak-in.png" alt="Screenshot of the 'Speak In' plugin dropdown in LaunchBar" width="480">
+
+Given some text, have the computer’s text-to-speech system read it out loud, choosing from a configurable list of languages/voices. You can also save it to an audio file, which can then be used in flashcard apps like [Anki](https://apps.ankiweb.net/). The list of languages are sorted by last used. Useful for polyglots and language learners.
 
 Go to System Preferences ▸ Accessibility ▸ Speech ▸ System Voice to see what voices are available, and download more.
+
+## Download
+
+Download from the [latest release](https://github.com/mirka/launchbar-actions/releases/latest).
