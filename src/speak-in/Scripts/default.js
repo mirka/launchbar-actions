@@ -31,11 +31,12 @@ function updateStats(voice) {
 }
 
 function _say({ text, voice, meta }) {
-	LaunchBar.executeAppleScript(`say "${text}" using "${voice}"`);
+	const MAKE_CANCELABLE_AFTER_LENGTH = 50;
+	const pid = LaunchBar.execute(Action.path + '/Contents/Scripts/say.sh', text, voice);
 
 	updateStats(voice);
 
-	return [
+	const defaultItems = [
 		{
 			...meta,
 			action: '_say',
@@ -54,6 +55,24 @@ function _say({ text, voice, meta }) {
 			actionReturnsItems: true,
 		},
 	];
+
+	if (text.length > MAKE_CANCELABLE_AFTER_LENGTH) {
+		return [
+			...defaultItems,
+			{
+				title: 'Stop speaking',
+				icon: 'font-awesome:times-circle',
+				action: '_killProcess',
+				actionArgument: pid,
+			}
+		];
+	}
+
+	return defaultItems;
+}
+
+function _killProcess(pid) {
+	LaunchBar.executeAppleScript(`do shell script "kill ${pid}"`);
 }
 
 function getFileHandler(type) {
