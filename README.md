@@ -11,6 +11,7 @@ _Requires LaunchBar 6+._
 <!-- toc -->
 
 - [Actions](#actions)
+  * [Code Scratchpad](#code-scratchpad)
   * [Copy Application Icon](#copy-application-icon)
   * [New File Here](#new-file-here)
   * [Relaunch Application](#relaunch-application)
@@ -20,6 +21,14 @@ _Requires LaunchBar 6+._
 <!-- tocstop -->
 
 ## Actions
+
+### Code Scratchpad
+
+<img src="https://raw.githubusercontent.com/mirka/launchbar-actions/master/assets/code-scratchpad.gif" alt="Typing the extension 'json' into the LaunchBar input" width="480">
+
+Open a temporary scratchpad file with a given extension.
+
+This is for when you want to quickly type out a few lines of code, but with proper indentation and syntax highlighting. (The assumption being that, you have your Finder set up to open files with certain extensions in the code editor of your choice.)
 
 ### Copy Application Icon
 
