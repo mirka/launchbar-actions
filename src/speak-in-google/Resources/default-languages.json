@@ -1,0 +1,34 @@
+{
+  "languages": [
+    {
+      "name": "French",
+      "icon": "🇫🇷",
+      "voice": "fr-FR-Neural2-F"
+    },
+    {
+      "name": "German",
+      "icon": "🇩🇪",
+      "voice": "de-DE-Neural2-G"
+    },
+    {
+      "name": "English (US)",
+      "icon": "🇺🇸",
+      "voice": "en-US-Neural2-F"
+    },
+    {
+      "name": "Japanese",
+      "icon": "🇯🇵",
+      "voice": "ja-JP-Neural2-B"
+    },
+    {
+      "name": "Russian",
+      "icon": "🇷🇺",
+      "voice": "ru-RU-Wavenet-A"
+    },
+    {
+      "name": "Portuguese (Brazilian)",
+      "icon": "🇧🇷",
+      "voice": "pt-BR-Neural2-C"
+    }
+  ]
+}

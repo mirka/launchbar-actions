@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>💬</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.jaguchi.LaunchBar.action.SpeakInGoogle</string>
+	<key>CFBundleName</key>
+	<string>Speak In… (Google)</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBArgument</key>
+	<string>Text to speak using Google TTS.</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBArgument</key>
+		<string>Text to speak using Google TTS.</string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBSummary</key>
+		<string>Speak text using Google's Text-to-Speech API. Choose from a customizable list of Google TTS voices and languages.</string>
+	</dict>
+	<key>LBMinimumLaunchBarVersion</key>
+	<integer>6</integer>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.js</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string>Text to speak with Google TTS</string>
+</dict>
+</plist>

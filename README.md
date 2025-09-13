@@ -16,6 +16,7 @@ _Requires LaunchBar 6+._
   * [New File Here](#new-file-here)
   * [Relaunch Application](#relaunch-application)
   * [Speak In…](#speak-in)
+  * [Speak In… (Google)](#speak-in-google)
 - [Download](#download)
 
 <!-- tocstop -->
@@ -51,6 +52,10 @@ Given an application, quit and relaunch it. If the app was running hidden, it wi
 Given some text, have the computer’s text-to-speech system read it out loud, choosing from a configurable list of languages/voices. You can also save it to an audio file, which can then be used in flashcard apps like [Anki](https://apps.ankiweb.net/). The list of languages are sorted by last used. Useful for polyglots and language learners.
 
 Go to System Preferences ▸ Accessibility ▸ Speech ▸ System Voice to see what voices are available, and download more.
+
+### Speak In… (Google)
+
+Same as above, but using Google's Text-to-Speech API. See the action's [README](./src/speak-in-google/README.md) for setup instructions, as you will need your own API credentials.
 
 ## Download
 
